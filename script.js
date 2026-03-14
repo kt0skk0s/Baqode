@@ -130,3 +130,57 @@ const counterObserver = new IntersectionObserver((entries, obs) => {
 }, { threshold: 0.5 });
 
 document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+// ==========================================
+// COOKIE CONSENT
+// ==========================================
+(function() {
+  const COOKIE_KEY = 'baqode_cookie_consent';
+
+  function setCookie(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+    document.cookie = name + '=' + value + ';expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
+  }
+
+  function getCookie(name) {
+    const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    return match ? match[2] : null;
+  }
+
+  // If already answered, don't show banner
+  if (getCookie(COOKIE_KEY)) return;
+
+  // Create banner
+  const banner = document.createElement('div');
+  banner.className = 'cookie-banner hidden';
+  banner.innerHTML = `
+    <div class="cookie-text">
+      <div class="cookie-title">🍪 This site uses cookies</div>
+      <div class="cookie-desc">
+        We use essential cookies to ensure the site works correctly.
+        No tracking or advertising cookies are used.
+      </div>
+    </div>
+    <div class="cookie-actions">
+      <button class="cookie-btn-decline" id="cookieDecline">Decline</button>
+      <button class="cookie-btn-accept" id="cookieAccept">Accept</button>
+    </div>
+  `;
+
+  document.body.appendChild(banner);
+
+  // Small delay so it animates in nicely
+  setTimeout(() => banner.classList.remove('hidden'), 100);
+
+  document.getElementById('cookieAccept').addEventListener('click', () => {
+    setCookie(COOKIE_KEY, 'accepted', 365);
+    banner.classList.add('hidden');
+    setTimeout(() => banner.remove(), 400);
+  });
+
+  document.getElementById('cookieDecline').addEventListener('click', () => {
+    setCookie(COOKIE_KEY, 'declined', 30);
+    banner.classList.add('hidden');
+    setTimeout(() => banner.remove(), 400);
+  });
+})();
