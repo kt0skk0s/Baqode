@@ -1456,3 +1456,15 @@ body.menu-open .topbar-inner {
   .cookie-btn-accept,
   .cookie-btn-decline { flex: 1; text-align: center; }
 }
+
+@media (max-width: 768px) {
+  .process-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .process-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
