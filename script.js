@@ -157,7 +157,7 @@ document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe
     <div class="cookie-text">
       <div class="cookie-title">🍪 This site uses cookies</div>
       <div class="cookie-desc">
-        We use essential cookies to ensure the site works correctly.
+        We use essential cookies to ensure the site works correctly.<br>
         No tracking or advertising cookies are used.
       </div>
     </div>
