@@ -1257,9 +1257,11 @@ body.menu-open .topbar-inner {
   .modern-form { padding: 28px 24px; }
   .contact-socials { flex-wrap: wrap; }
   .page-hero h1 {
-    font-size: clamp(2.35rem, 12vw, 3.2rem);
-    line-height: 0.95;
-    letter-spacing: -0.055em;
+  font-size: clamp(2.35rem, 12vw, 3.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+  overflow-wrap: break-word;
+  word-break: break-word;
   }
   .page-hero {
     padding-top: 140px;
