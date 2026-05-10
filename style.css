@@ -1256,6 +1256,14 @@ body.menu-open .topbar-inner {
   .nav-footer { bottom: 24px; flex-direction: column; align-items: flex-start; gap: 12px; }
   .modern-form { padding: 28px 24px; }
   .contact-socials { flex-wrap: wrap; }
+  .page-hero h1 {
+    font-size: clamp(2.35rem, 12vw, 3.2rem);
+    line-height: 0.95;
+    letter-spacing: -0.055em;
+  }
+  .page-hero {
+    padding-top: 140px;
+  }
 }
 
 /* ==========================================
